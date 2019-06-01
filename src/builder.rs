@@ -448,11 +448,7 @@ mod exec {
                 }
             }
             fn write_quoted(out: &mut String, s: &str) {
-                if !s.chars().all(nice_char) {
-                    out.push_str(&format!("'{}'", s.replace("'", r#"'\''"#)));
-                } else {
-                    out.push_str(s);
-                }
+                out.push_str(s);
             }
             let mut out = String::new();
             write_quoted(&mut out, &self.command.to_string_lossy());
